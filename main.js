@@ -94,19 +94,17 @@ console.log("Menu ordenado por calorias(asc):");
 console.log(menu.sort((a,b) => a["calorias"] - b["calorias"])); */
 
 // DOM
-    //Eleccion de la dieta
+
 let dietaSeleccionada = prompt('Elegi tipo de dieta: "regular", "vegana"');
-console.log(dietaSeleccionada);
-    //Creacion de una seccion 
+console.log(`dietaSeleccionada: ${dietaSeleccionada}`);
+
 const seccionDietas = document.getElementById("seccion-dietas");
 
 function listado(e) {
-    let li = document.createElement("li");
-    seccionDietas.append(li);
-        let contenedor = document.createElement("div");
-        contenedor.innerHTML = `<h3>${e.nombre}</h3>
+        let li = document.createElement("li");
+        li.innerHTML = `<h3>${e.nombre}</h3>
                                 <p>Tipo: ${e.tipo}</p>`;
-        li.append(contenedor);
+        seccionDietas.append(li);
 };
 if (dietaSeleccionada == "regular") {
     seccionDietas.innerHTML += "<h2>Ejemplo Dieta Regular</h2>";

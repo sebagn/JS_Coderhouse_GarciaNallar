@@ -3,15 +3,9 @@
     background-image: url(https://unsplash.com/photos/08bOYnH_r_E/download?force=true&w=1920);
 }
 
-#seccion-dietas{
-    display: inline-block;
-}
-
-li{
+#seccion-dietas li{
     display: inline-block;
     margin: 5px;
-}
-li div{
     border: solid black 1px;
     padding: 5px;
 }
