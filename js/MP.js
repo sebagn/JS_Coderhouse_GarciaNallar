@@ -3,8 +3,11 @@
  {"id":2, "tipo":"basico", "precio":500, "unit":"ARS"} ]
 
 
-$("#botonComprar").on("click", function(){  
 
+
+
+$("#botonComprar").on("click", function(){  
+   
         // Seleccion del plan
     let planElegido = [
         (planes[parseInt(($('input[name=tipo]:checked', '#tipo-plan').val()))])
@@ -29,7 +32,8 @@ $("#botonComprar").on("click", function(){
 
     $.ajax({
         method: "POST",
-        url: 'https://api.mercadopago.com/checkout/preferences', 
+        url: 'https://api.mercadopago.com/checkout/preferences/', 
+        id: "2841301356588287",
         headers:{
             Authorization: "Bearer TEST-2a3701c5-7d22-4dbc-b071-075055f91a02"
             // Authorization: "Bearer TEST-2841301356588287-102823-fae41906c18a26d445898bd4a8473ae0-78045733"
@@ -40,7 +44,7 @@ $("#botonComprar").on("click", function(){
         success: function(respuesta , estado) {
             const data = respuesta;
             console.log(data);
-            window.open(data.init_point, "_blank")
+            // window.open(data.init_point, "_blank")
         }
     })
 

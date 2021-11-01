@@ -1,5 +1,5 @@
 $("#botonMostrar").click(() => {
-    $.get("planes.json", function(respuesta,estado){
+    $.get("js/planes.json", function(respuesta,estado){
         if (estado === "success"){
             let data = respuesta;
             console.log(data);

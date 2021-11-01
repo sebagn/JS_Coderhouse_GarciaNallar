@@ -26,6 +26,11 @@
 
 .comida {
     display: inline-block;
+    background-image: url(../images/card.jpg);
+    background-color: #fff;
+    background-size: cover;
+    text-align: right;
+
 }
 .tarjeta{
     border: solid black 1px; border-radius: 5px;
@@ -41,6 +46,8 @@
 }
 h1{
     text-transform : uppercase;
+    color: green;
+    font-weight: 900;
 }
 h2{
     margin: 0.5rem;
@@ -55,9 +62,6 @@ div{
 .hidden{
     display: none;
 }
-
-
-
 body{
-    background-image: URL("images/wallpaper-2.jpg");
+    background-image: URL("../images/wallpaper-2.jpg");
 }

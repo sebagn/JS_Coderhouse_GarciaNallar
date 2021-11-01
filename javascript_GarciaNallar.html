@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso JS Garcia Nallar</title>
+    <title>Nutricion-100% La mejor web de nutrición!</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
     <div id="inicio">
-        <h1>Nutricion-100%</h1>
+        <h1 class=>Nutricion-100%</h1>
     </div>
 
     <!-- offcanvas de bootstrap -->
@@ -74,7 +74,7 @@
         </div>
         <div id="paciente-cargado" >
         </div>
-    </div>
+    </div><hr>
     
     <div class="flex">
         <h2>Descubri la dieta ideal para vos</h2>
@@ -83,13 +83,13 @@
         <button type="button" class="btn btn-dieta btn-success" id="botonVegetariana">Dieta Vegetariana</button>
         <button type="button" class="btn btn-dieta btn-success" id="botonKeto">Dieta Keto</button>
     </div>
-    <ul id="seccion-dietas" class="flex hidden"></ul> 
+    <ul id="seccion-dietas" class="flex hidden"></ul> <hr>
 
     <section class="flex" id="verPlan">
         <div class="flex"><h2>Descubri nuestros planes de nutricion</h2></div>   
         <button type="button" class="btn btn-secondary" id="botonMostrar">Ver planes</button>
         <div class="hidden" id="nuestrosPlanes"></div>
-    </section>
+    </section><hr>
 
     <section class="flex" id="buscador-comida">
             <div class="flex">
@@ -102,8 +102,7 @@
                 </div>
             </div>
         </form>
-
-    </section>
+    </section><hr>
 
     <section class="flex" id="contratarPlan">
         <div><h2>Contrata uno de nuestros planes de nutricion</h2></div>   
@@ -115,7 +114,22 @@
             <button type="button" class="btn btn-secondary" id="botonComprar">Contratar</button>
         </form>
     </section>
-
+    <div class="cho-container"></div>
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script>
+        const mp = new MercadoPago('TEST-2a3701c5-7d22-4dbc-b071-075055f91a02', {
+            locale: 'es-AR'
+        })
+        const checkout = mp.checkout({
+            preference: {
+                id: '2841301356588287'
+            }
+        });
+        checkout.render({
+            container: '.cho-container',
+            label: 'Pay'
+        });
+    </script>
 
     <script src="js/Jquery.js"></script>
     <script src="js/paciente.js"></script>
@@ -123,6 +137,7 @@
     <script src="js/planes.js"></script>
     <script src="js/comidas.js"></script>
     <script src="js/MP.js"></script>
+    <!-- <script src="https://sdk.mercadopago.com/js/v2"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     </body>
 </html>
