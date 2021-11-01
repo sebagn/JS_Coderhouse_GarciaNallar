@@ -1,0 +1,63 @@
+.flex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center; 
+    width: 90%;
+    margin: 10px;
+}
+.btn{
+    border: solid 1px black;
+    border-radius: 2px;
+    margin: 5px;
+}
+.seleccionado{
+    background-color: rgb(106, 207, 4);
+    color: white;
+}
+.btn-success:focus{
+    background-color: rgb(106, 207, 4);
+}
+
+.formulario__div{
+    width: 30%;
+    margin-bottom: 15px;
+}
+
+.comida {
+    display: inline-block;
+}
+.tarjeta{
+    border: solid black 1px; border-radius: 5px;
+    margin: 0.3rem; padding: 1rem;
+}    
+.exito{
+    border-radius: 5px;
+    background-color: green;
+    font-size: large;
+    font-weight: 900;
+    color: white;
+    padding: 1rem;
+}
+h1{
+    text-transform : uppercase;
+}
+h2{
+    margin: 0.5rem;
+    width: 100%;
+}
+div{
+    text-align: center;
+}
+.pac-eliminado{
+    color: red;
+}
+.hidden{
+    display: none;
+}
+
+
+
+body{
+    background-image: URL("images/wallpaper-2.jpg");
+}
