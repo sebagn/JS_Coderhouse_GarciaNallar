@@ -8,7 +8,11 @@
 
 $("#botonComprar").on("click", function(){  
    
-        // Seleccion del plan
+
+
+
+
+        /* // Seleccion del plan
     let planElegido = [
         (planes[parseInt(($('input[name=tipo]:checked', '#tipo-plan').val()))])
     ];
@@ -46,6 +50,6 @@ $("#botonComprar").on("click", function(){
             console.log(data);
             // window.open(data.init_point, "_blank")
         }
-    })
+    }) */
 
 })
