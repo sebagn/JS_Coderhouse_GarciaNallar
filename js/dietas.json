@@ -1,0 +1,12 @@
+[
+    {"nombre":"Vaca" ,"tipo":"carnes" ,"calorias":117 },
+    {"nombre":"Pollo" ,"tipo":"carnes" ,"calorias":117 },
+    {"nombre":"Pescado" ,"tipo":"carnes" ,"calorias":127 },
+    {"nombre":"Huevo" ,"huevos":"carnes" ,"calorias":74 },
+    {"nombre":"Leche" ,"tipo":"lacteos" ,"calorias":74 },
+    {"nombre":"Queso" ,"tipo":"lacteos" ,"calorias":306 },
+    {"nombre":"Arroz" ,"tipo":"hidratos" ,"calorias":340 },
+    {"nombre":"Soja" ,"tipo":"legumbres" ,"calorias":480 },
+    {"nombre":"Tomate" ,"tipo":"vegetales" ,"calorias":117 },
+    {"nombre":"Cebolla" ,"tipo":"vegetales" ,"calorias":117 }
+]

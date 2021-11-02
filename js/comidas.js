@@ -1,10 +1,7 @@
-        // NO FUNCIONA xq no tengo acceso :(
-            
 const Foods = "https://trackapi.nutritionix.com/v2/natural/nutrients"
 
 $("#botonBuscador").on("click", function() {
     let comida = $("#comida").val()
-    console.log(comida) 
 
     var settings = {
         "async": true,
@@ -24,23 +21,46 @@ $("#botonBuscador").on("click", function() {
         "data": `{"query":"${comida}"}`
         }
 
-            // Crea la tarjeta de la comida
-        $.ajax(settings).done(function (response) {
-        let comida = response;
-        console.log(comida)
-        $("#comida-buscada").html(
-            `<div class="tarjeta"><h3>${comida.foods[0].food_name.toUpperCase()}</h3>
-            <img src="${comida.foods[0].photo.thumb}" alt="foto de la comida">
-            <p>Calorias: ${comida.foods[0].nf_calories}</p></div>
-            <small>Fuente: nutritionix.com</small>`
-        );
-    });
+        // Crea la tarjeta de la comida
+    $.ajax(settings).done(function (response, status) {
+        if (status === "success"){
+            let comidaArray = response;
+            console.log(comidaArray)
+
+            $("#comida-buscada").html(
+                `<div id="comida-buscada__card" class="tarjeta">
+                    <h3>${comidaArray.foods[0].food_name.toUpperCase()}</h3>
+                    <img src="${comidaArray.foods[0].photo.thumb}" alt="foto de la comida">
+                    <p id="nutri-info">Calorias: ${comidaArray.foods[0].nf_calories}</p>
+                    <button id="ver-mas" class="btn">Mas info</button>
+                </div>
+                <small>Fuente: nutritionix.com</small>`
+            );
+            $("#ver-mas").click(function(){
+                $("#comida-buscada__card").animate(
+                    {"height":"400px"}
+                )
+                $("#nutri-info").append(
+                    `<br>Colesterol: ${comidaArray.foods[0].nf_cholesterol}
+                    <br>Potasio: ${comidaArray.foods[0].nf_potassium}
+                    <br>Proteinas: ${comidaArray.foods[0].nf_protein}
+                    <br>Sodio: ${comidaArray.foods[0].nf_sodium}
+                    <br>Azucares: ${comidaArray.foods[0].nf_sugars}
+                    <br>Grasas saturadas: ${comidaArray.foods[0].nf_saturated_fat}
+                    `
+                )
+                $(this).hide()
+            });
+        } 
+    })
 });
 
+
 // Para que la tecla "ENTER" no actualice la pagina, y ejecute la busqueda
-      $('#comida').bind('keydown',function(e){ 
-        if(e.keyCode===13){ //if this is enter key  
-            e.preventDefault();       
-            $("#botonBuscador").trigger("click");}
-    });  
+$('#comida').bind('keydown',function(e){ 
+    if (e.keyCode === 13) { //if this is enter key  
+        e.preventDefault();       
+        $("#botonBuscador").trigger("click");
+    }   
+});  
 

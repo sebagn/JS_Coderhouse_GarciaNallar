@@ -18,9 +18,8 @@
 .btn-success:focus{
     background-color: rgb(106, 207, 4);
 }
-
 .formulario__div{
-    width: 30%;
+
     margin-bottom: 15px;
 }
 
@@ -37,6 +36,10 @@
     margin: 0.3rem; padding: 1rem;
     background-color: #fff;
 }    
+.plan{
+    background-color: black;
+    color: white;
+}
 .exito{
     border-radius: 5px;
     background-color: green;

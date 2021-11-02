@@ -72,10 +72,6 @@ $("#form-crearPaciente").on("submit", function(e) {
         }
     };
     // Si no esta vacio ni registrado, crea el nuevo paciente
-    
-    console.log($("#dni").val() == "");
-    console.log(yaUsado);
-    console.log(dniVacio);
     if (!yaUsado && !dniVacio) {
         crearPaciente();     
 
@@ -86,12 +82,13 @@ $("#form-crearPaciente").on("submit", function(e) {
         $(this)[0].reset();
             
         // Muestra un mensaje "paciente creado
-        $(".hidden").fadeIn("slow") ; 
+        $(".exito").html(`Paciente creado exitosamente`)
+                    .fadeIn() ; 
     } 
 });
 // Cualquier cambio borra el mensaje de paciente creado.
-$(document).on("change",function(){
-    $(".hidden").hide();
+$(document).on("click",function(){
+    $(".exito").hide();
 })
 
 // Recuperar algun paciente del local storage
@@ -100,8 +97,8 @@ $("#revisar-paciente").on( "click", function(){
     console.log(pacienteCargado);
     if (pacienteCargado) {
         $("#paciente-cargado").html(`<div class="hidden tarjeta row align-items-center" id="paciente__card">
-        <div class="hidden col-xxl-4" id="paciente__avatar"><img src="images/batman_90804.ico" class="img-batman" alt="Batman"></div>
-        <div class="col-xxl-8" >
+        <div class="hidden col-xxxl-4" id="paciente__avatar"><img src="images/batman_90804.ico" class="img-batman" alt="Batman"></div>
+        <div class="col-xxxl-8" >
             <h3> Paciente: ${pacienteCargado.nombre} ${pacienteCargado.apellido}</h3><br>
             <p> Dni: ${pacienteCargado.dni}<br>
                 Peso: ${pacienteCargado.peso}<br>
