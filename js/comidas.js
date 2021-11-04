@@ -1,9 +1,9 @@
 const Foods = "https://trackapi.nutritionix.com/v2/natural/nutrients"
 
 $("#botonBuscador").on("click", function() {
-    let comida = $("#comida").val()
-
-    var settings = {
+    //curl API de nutritionix.com
+    let comida = $("#comida").val();
+    var settings = { 
         "async": true,
         "crossDomain": true,
         "url": Foods,
@@ -19,19 +19,26 @@ $("#botonBuscador").on("click", function() {
         },
         "processData": false,
         "data": `{"query":"${comida}"}`
-        }
+        };
 
         // Crea la tarjeta de la comida
-    $.ajax(settings).done(function (response, status) {
+    $.ajax(settings).done(function (response,status) {
         if (status === "success"){
-            let comidaArray = response;
-            console.log(comidaArray)
-
+            const { food_name, 
+                    photo,
+                    nf_calories,
+                    nf_cholesterol,
+                    nf_potassium,
+                    nf_protein,
+                    nf_sodium,
+                    nf_sugars,
+                    nf_saturated_fat} = response.foods[0]
+         
             $("#comida-buscada").html(
                 `<div id="comida-buscada__card" class="tarjeta">
-                    <h3>${comidaArray.foods[0].food_name.toUpperCase()}</h3>
-                    <img src="${comidaArray.foods[0].photo.thumb}" alt="foto de la comida">
-                    <p id="nutri-info">Calorias: ${comidaArray.foods[0].nf_calories}</p>
+                    <h3>${food_name.toUpperCase()}</h3>
+                    <img src="${photo.thumb}" alt="foto de la comida">
+                    <p id="nutri-info">Calorias: ${nf_calories}</p>
                     <button id="ver-mas" class="btn">Mas info</button>
                 </div>
                 <small>Fuente: nutritionix.com</small>`
@@ -41,12 +48,12 @@ $("#botonBuscador").on("click", function() {
                     {"height":"400px"}
                 )
                 $("#nutri-info").append(
-                    `<br>Colesterol: ${comidaArray.foods[0].nf_cholesterol}
-                    <br>Potasio: ${comidaArray.foods[0].nf_potassium}
-                    <br>Proteinas: ${comidaArray.foods[0].nf_protein}
-                    <br>Sodio: ${comidaArray.foods[0].nf_sodium}
-                    <br>Azucares: ${comidaArray.foods[0].nf_sugars}
-                    <br>Grasas saturadas: ${comidaArray.foods[0].nf_saturated_fat}
+                    `<br>Colesterol: ${nf_cholesterol}
+                    <br>Potasio: ${nf_potassium}
+                    <br>Proteinas: ${nf_protein}
+                    <br>Sodio: ${nf_sodium}
+                    <br>Azucares: ${nf_sugars}
+                    <br>Grasas saturadas: ${nf_saturated_fat}
                     `
                 )
                 $(this).hide()
@@ -54,7 +61,6 @@ $("#botonBuscador").on("click", function() {
         } 
     })
 });
-
 
 // Para que la tecla "ENTER" no actualice la pagina, y ejecute la busqueda
 $('#comida').bind('keydown',function(e){ 
